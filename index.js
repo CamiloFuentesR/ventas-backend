@@ -21,6 +21,7 @@ app.use(cors())
 
     const port = process.env.PORT || 4000;
     const host = process.env.HOST || '0.0.0.0.'
+    app.use(express.urlencoded({extended:true}));
 
     app.listen(port, host, () => {
         console.log(`Server run in port ${port}`)
