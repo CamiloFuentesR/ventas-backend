@@ -5,7 +5,7 @@ const cors = require('cors');
 
 
 const app = express();
-const whiteList = [ 'https://best-sale.netlify.app' ]; //hace accesible solo desde esta url acccion
+const whiteList = ['https://best-sale.netlify.app/home' /* 'https://localhost:3000/' */]; //hace accesible solo desde esta url acccion
 const corsOptions = {
     origin: (origin, callbaback) => {
         //console.log(origin);
@@ -19,20 +19,20 @@ const corsOptions = {
 }
 //db conexion
 db.authenticate()
-    .then(()=> console.log('bd on line'))
+    .then(() => console.log('bd on line'))
     .catch(error => console.log(error));
 // db.sync({force:false});
-    app.use(express.json());
 app.use(cors(corsOptions))
-    // app.use(express.static('public'));
+app.use(express.json());
+// app.use(express.static('public'));
 
-    app.use('/api/user', require('./routes/userRouter'));
-    app.use('/api/sales',require('./routes/salesRouter'));
-    app.use('/api/auth',require('./routes/authRouter'));
+app.use('/api/user', require('./routes/userRouter'));
+app.use('/api/sales', require('./routes/salesRouter'));
+app.use('/api/auth', require('./routes/authRouter'));
 
-    const port = process.env.PORT || 4000;
-    const host = process.env.HOST || '0.0.0.0.'
+const port = process.env.PORT || 4000;
+const host = process.env.HOST || '0.0.0.0.'
 
-    app.listen(port, host, () => {
-        console.log(`Server run in port ${port}`)
-    })
+app.listen(port, host, () => {
+    console.log(`Server run in port ${port}`)
+})
