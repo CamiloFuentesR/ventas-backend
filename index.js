@@ -5,7 +5,7 @@ const cors = require('cors');
 
 
 const app = express();
-/* const whiteList = ['https://best-sale.netlify.app']; //hace accesible solo desde esta url acccion
+const whiteList = ['https://best-sale.netlify.app']; //hace accesible solo desde esta url acccion
 const corsOptions = {
     origin: (origin, callbaback) => {
         //console.log(origin);
@@ -16,8 +16,8 @@ const corsOptions = {
             callbaback(new Error('No permitido por cors'))
         }
     }
-} */
-app.use(cors())
+}
+app.use(cors(corsOptions))
 
 //db conexion
 db.authenticate()
