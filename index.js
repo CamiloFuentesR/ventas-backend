@@ -5,7 +5,7 @@ const cors = require('cors');
 
 
 const app = express();
-/* const whiteList = ['https://best-sale.netlify.app/']; //hace accesible solo desde esta url acccion
+const whiteList = ['https://best-sale.netlify.app/']; //hace accesible solo desde esta url acccion
 const corsOptions = {
     origin: (origin, callbaback) => {
         //console.log(origin);
@@ -16,7 +16,7 @@ const corsOptions = {
             callbaback(new Error('No permitido por cors'))
         }
     }
-} */
+}
 
 //db conexion
 db.authenticate()
@@ -24,7 +24,7 @@ db.authenticate()
     .catch(error => console.log(error));
 // db.sync({force:false});
     app.use(express.json());
-    // app.use(cors(corsOptions))
+    app.use(cors(corsOptions))
     // app.use(express.static('public'));
 
     app.use('/api/user', require('./routes/userRouter'));
