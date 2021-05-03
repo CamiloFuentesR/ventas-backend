@@ -12,7 +12,7 @@ db.authenticate()
     .catch(error => console.log(error));
 // db.sync({force:false});
     app.use(express.json());
-app.use(cors())
+// app.use(cors())
     // app.use(express.static('public'));
 
     app.use('/api/user', require('./routes/userRouter'));
