@@ -22,7 +22,7 @@ db.authenticate()
     .then(() => console.log('bd on line'))
     .catch(error => console.log(error));
 // db.sync({force:false});
-app.use(cors())
+// app.use(cors())
 app.use(express.json());
 // app.use(express.static('public'));
 
