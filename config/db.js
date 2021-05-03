@@ -1,7 +1,7 @@
 const sequelize = require('sequelize');
 const dotenv = require('dotenv');
 
-dotenv.config({ path: '.env.production' });
+dotenv.config({ path: 'variables.env' });
 
 exports.db = new sequelize(
     process.env.BD_NAME,
