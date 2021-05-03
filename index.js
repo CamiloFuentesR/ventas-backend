@@ -20,7 +20,7 @@ app.use('/api/sales', require('./routes/salesRouter'));
 app.use('/api/auth', require('./routes/authRouter'));
 
 const port = process.env.PORT || 4000;
-const host = process.env.HOST || '0.0.0.0.'
+const host = process.env.HOST || 'https://bestsales.herokuapp.com/'
 app.use(express.urlencoded({ extended: true }));
  
 app.listen(port, host, () => {
